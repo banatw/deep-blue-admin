@@ -25,18 +25,17 @@ $(function(){
     $('#myForm').submit(function(event){
         event.preventDefault();
         var url = $(this).attr('action');
-        $.post(url, $(this).serialize(), function(jsonData){
-            if(jsonData.error==0) {
-               //$(this).hide();
-               //alert('modal ditutup');
+        $.post(url, $(this).serialize(), function(data){
+            if(data=="") {
+               window.location.href = "{{{rc.contextPath}}}/negara";
             }
             else {
                var value = "<div id='pesan_error' class='alert alert-success alert-dismissable'>"
-                            + jsonData.message
+                            + data
                             + "</div>";
-               $('#pesan_error').replaceWith(value);
+               $( '#pesan_error' ).html(value);
             }
-        }, "json");
+        });
     });
 
 });

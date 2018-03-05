@@ -141,6 +141,20 @@ public class DeepBlueAdminApplication {
 			model.addAttribute("negaras",negaraRepo.findAll());
 			return "form_tes";
 		}
+
+		@PostMapping("/simpan-negara")
+		public String getError(@Valid com.model.Negara negara, BindingResult bindingResult,Model model) {
+			if(bindingResult.hasErrors()) {
+				model.addAttribute("errors",bindingResult.getFieldError().getDefaultMessage());
+				return "error";
+			}
+			Negara negara1 = new Negara();
+			negara1.setName(negara.getName());
+			negara1.setIdNegara(Integer.valueOf(negara.getIdNegara()));
+			negaraRepo.save(negara1);
+			model.addAttribute("errors","");
+			return "error";
+		}
 	}
 
 	public interface MatchGroup {
@@ -150,16 +164,6 @@ public class DeepBlueAdminApplication {
 	@RestController
 	public class MyRestController {
 
-		@PostMapping("/simpan-negara")
-		public Error getError(@Valid com.model.Negara negara, BindingResult bindingResult) {
-			if(bindingResult.hasErrors()) {
-				return new Error(1,bindingResult.getFieldError().getDefaultMessage());
-			}
-			Negara negara1 = new Negara();
-			negara1.setName(negara.getName());
-			negara1.setIdNegara(Integer.valueOf(negara.getIdNegara()));
-			negaraRepo.save(negara1);
-			return new Error(0,"");
-		}
+
 	}
 }
