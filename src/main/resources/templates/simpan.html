@@ -1,0 +1,27 @@
+{{>header\header}}
+<div class="container">
+
+    <form method="get" >
+        <select name="negara" id="negara" class="form-control" multiple="multiple">
+            {{#negaras}}
+            <option value="{{idNegara}}">{{name}}</option>
+            {{/negaras}}
+        </select>
+        <div class="form-group">
+            <input name="tgl" id="tgl" class="form-control">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Simpan">
+    </form>
+</div>
+
+<script>
+$(function() {
+$('#negara').select2();
+$('#tgl').daterangepicker({
+    //singleDatePicker: true,
+    //showDropdowns: true
+});
+});
+
+</script>
+{{>footer\footer}}

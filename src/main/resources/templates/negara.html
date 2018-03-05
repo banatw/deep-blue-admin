@@ -1,0 +1,46 @@
+{{>header\header}}
+    <div class="container">
+        <div class="row">
+            <a href="{{rc.contextPath}}/form-tes" class="btn btn-info" data-target="#myModal"
+               data-backdrop="static" data-keyboard="true" data-toggle="modal">Tambah</a>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                   <!-- <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>-->
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAMA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#negaras}}
+                    <tr>
+                        <td>{{idNegara}}</td>
+                        <td>{{name}}</td>
+                    </tr>
+                    {{/negaras}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{{>footer\footer}}
