@@ -1,11 +1,14 @@
+
 <div class="panel-default">
     <div class="panel-body">
+
         <div id="pesan_error">
 
         </div>
+
         <form  id="myForm" method="post" action="{{rc.contextPath}}/simpan-negara" >
             <fieldset>
-                <legend>dsdsdsd</legend>
+                <legend>xxxxx</legend>
             <div class="form-group">
                 <label for="id">ID</label>
                 <input id="id" type="number" name="idNegara" class="form-control">
@@ -26,14 +29,13 @@ $(function(){
         event.preventDefault();
         var url = $(this).attr('action');
         $.post(url, $(this).serialize(), function(data){
-            if(data=="") {
-               window.location.href = "{{{rc.contextPath}}}/negara";
+            if(data!="")
+            {
+                $( '#pesan_error' ).html(data);
             }
-            else {
-               var value = "<div id='pesan_error' class='alert alert-success alert-dismissable'>"
-                            + data
-                            + "</div>";
-               $( '#pesan_error' ).html(value);
+            else
+            {
+                window.location.href = "{{rc.contextPath}}/negara";
             }
         });
     });

@@ -153,17 +153,8 @@ public class DeepBlueAdminApplication {
 			negara1.setIdNegara(Integer.valueOf(negara.getIdNegara()));
 			negaraRepo.save(negara1);
 			model.addAttribute("errors","");
-			return "error";
+			return "sukses";
 		}
 	}
 
-	public interface MatchGroup {
-	}
-
-
-	@RestController
-	public class MyRestController {
-
-
-	}
 }
